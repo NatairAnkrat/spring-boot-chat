@@ -37,7 +37,7 @@ public class ChatMessage {
     	//InsertTable.getData(1,content);
     	//InsertTable.getData(0, sender);
     	InsertTable.insertTable(sender, content);
-    	this.content = content;
+    	this.content = InsertTable.getText(3);
         //this.content = content;
     }
 

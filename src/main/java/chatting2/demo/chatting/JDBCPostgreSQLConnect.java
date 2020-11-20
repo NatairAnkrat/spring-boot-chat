@@ -34,8 +34,8 @@ public class JDBCPostgreSQLConnect {
 	
 	private String TextText = "";
 	private String SenderSender = "";
+	private int flag2 = 0;
 	public void getData(int flag, String data) throws SQLException {
-		int flag2 = 0;
 		if (flag == 0) {
 			SenderSender = data;
 			flag2 = flag2 + 1;
@@ -50,6 +50,7 @@ public class JDBCPostgreSQLConnect {
 			insertTable(SenderSender, TextText);
 			TextText = "";
 			SenderSender = "";
+			flag2 = 0;
 		}
 		
 		
@@ -141,15 +142,18 @@ public class JDBCPostgreSQLConnect {
 		try(Connection connection = DriverManager
 				.getConnection(url,user,password);
 				Statement statement  = connection.createStatement();){ 
-			boolean result = statement.execute(createTableSQL);
+			//boolean resultSet = statement.execute(createTableSQL);
 
-			//ResultSet resultSet = statement.executeQuery("SELECT VERSION()");
-			//ResultSet resultSet = statement.executeQuery("SELECT * from message_db");
-			//if (resultSet.next()) {
-			//	System.out.println(resultSet.getString(1));
-			//}
+			//ResultSet resultSet = statement.executeQuery("SELECT * FROM pg_catalog.pg_tables");
+			ResultSet resultSet = statement.executeQuery("SELECT * FROM public;");
+			int i = 1;
+			if(resultSet.next()) {
 			
-			System.out.println(result);	
+				System.out.println(resultSet.getString(i));
+				//i=i+1;
+			}
+			
+			//System.out.println(resultSet);	
 		} catch (SQLException e) {
 			 printSQLException(e);
 		}
