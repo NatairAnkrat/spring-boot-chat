@@ -15,13 +15,13 @@ import chatting2.demo.chatting.JDBCPostgreSQLConnect;
 public class ChattingApplication {
 
 	public static void main(String[] args) throws SQLException {
-		//JDBCPostgreSQLConnect InsertTable = new JDBCPostgreSQLConnect();
+		JDBCPostgreSQLConnect InsertTable = new JDBCPostgreSQLConnect();
 		//InsertTable.insertTable("adin", "dva");
-    	//InsertTable.getData(0,"BBBBB");
-    	//InsertTable.getData(1,"AAAAA");
+    	InsertTable.getData(0,"BBBBB");
+    	InsertTable.getData(1,"AAAAA");
 		//System.out.println(InsertTable.getID() + InsertTable.getText(2) + InsertTable.getText(3) + "AAAAAAAAAAAAAAAA");
 		//InsertTable.createTable();
-		SpringApplication.run(ChattingApplication.class, args);
+		//SpringApplication.run(ChattingApplication.class, args);
 		//InsertTable.ClearTable();
 	}
 
