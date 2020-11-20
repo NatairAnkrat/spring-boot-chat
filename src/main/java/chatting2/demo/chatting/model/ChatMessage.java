@@ -34,9 +34,9 @@ public class ChatMessage {
     	
     	
     	JDBCPostgreSQLConnect InsertTable = new JDBCPostgreSQLConnect();
-    	//InsertTable.getData(1,content);
-    	//InsertTable.getData(0, sender);
-    	InsertTable.insertTable(sender, content);
+    	InsertTable.getData(1, content);
+    	InsertTable.getData(0, sender);
+    	//InsertTable.insertTable(sender, content);
     	this.content = InsertTable.getText(3);
         //this.content = content;
     }
